@@ -9,12 +9,9 @@ resource "aws_instance" "web" {
     Name = "Server"
   }
 }
-
 resource "aws_default_subnet" "default_az1" {
 availability_zone = "ap-south-1a"
-vpc_id = "vpc-02c0c20de89ddae26"
-cidr_block = "172.31.1.0/20"
-
+vpc_id     = aws_vpc.default.id
   tags = {
     Name = "Default subnet for ap-south-1a"
   }
